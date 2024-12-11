@@ -8,13 +8,28 @@ const AnalysisResult = ({ analysis }) => {
   const [sections, setSections] = useState([]);
   const containerRef = useRef(null);
 
+  const headerVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const paragraphVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  };
+
+  const listVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
   useEffect(() => {
-    if (!analysis) return; // Add a check for undefined or null analysis
+    if (!analysis) return;
 
     const analysisString =
       typeof analysis === "object" ? analysis.analysis : analysis;
 
-    if (!analysisString) return; // Add another check for empty analysis string
+    if (!analysisString) return;
 
     const html = marked(analysisString);
     const tempDiv = document.createElement("div");
@@ -62,23 +77,8 @@ const AnalysisResult = ({ analysis }) => {
     return () => observer.disconnect();
   }, [sections]);
 
-  const headerVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
-  const paragraphVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-  };
-
-  const listVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  };
-
   if (!analysis) {
-    return <p>No analysis data available.</p>; // Optionally render a message if analysis is not available
+    return <p>No analysis data available.</p>;
   }
 
   return (

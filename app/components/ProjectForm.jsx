@@ -10,6 +10,7 @@ export default function ProjectForm({ onSubmit }) {
     techStack: "",
     timeline: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +19,8 @@ export default function ProjectForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(projectData);
+    setIsSubmitting(true);
+    onSubmit(projectData).finally(() => setIsSubmitting(false));
   };
 
   return (
@@ -113,8 +115,16 @@ export default function ProjectForm({ onSubmit }) {
         <button
           type="submit"
           className="mt-10 w-full bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105"
+          disabled={isSubmitting}
         >
-          Submit Project
+          {isSubmitting ? (
+            <>
+              <span className="animate-spin mr-2 w-5 h-5 border-4 border-t-transparent border-white rounded-full"></span>
+              Analysing...
+            </>
+          ) : (
+            "Submit Project"
+          )}
         </button>
       </form>
     </div>
