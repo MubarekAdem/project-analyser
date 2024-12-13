@@ -12,9 +12,10 @@ const Navbar = () => {
   return (
     <nav className="bg-black text-white fixed w-full top-0 left-0 z-10 shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <div className="text-xl font-semibold hidden md:flex">Projectify</div>
+        <div className="text-xl font-semibold">Projectify</div>
 
-        <div className="flex-1 flex justify-center space-x-8">
+        {/* Desktop Links */}
+        <div className="hidden md:flex flex-1 justify-center space-x-8">
           <Link href="/" className="text-lg hover:text-gray-400">
             Home
           </Link>
@@ -26,6 +27,7 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white">
             <svg
@@ -46,16 +48,29 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Links */}
       {isOpen && (
         <div className="md:hidden bg-black text-white">
           <div className="flex flex-col items-center py-4 space-y-4">
-            <Link href="/" className="text-lg hover:text-gray-400">
+            <Link
+              href="/"
+              className="text-lg hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </Link>
-            <Link href="/ai" className="text-lg hover:text-gray-400">
+            <Link
+              href="/ai"
+              className="text-lg hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
               AI
             </Link>
-            <Link href="/about" className="text-lg hover:text-gray-400">
+            <Link
+              href="/about"
+              className="text-lg hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
               About
             </Link>
           </div>

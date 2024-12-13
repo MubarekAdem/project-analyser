@@ -48,7 +48,7 @@ export default function ProjectForm({ onSubmit }) {
             <label
               htmlFor="name"
               className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
+                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-sm sm:peer-placeholder-shown:text-sm sm:peer-placeholder-shown:top-2"
             >
               Project Name
             </label>
@@ -67,7 +67,7 @@ export default function ProjectForm({ onSubmit }) {
             <label
               htmlFor="description"
               className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
+                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-sm sm:peer-placeholder-shown:text-sm sm:peer-placeholder-shown:top-2"
             >
               Description
             </label>
@@ -86,10 +86,13 @@ export default function ProjectForm({ onSubmit }) {
             <label
               htmlFor="teamMembers"
               className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
+               peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
             >
-              Team Members (e.g., Alice - Frontend, Bob - Backend)
+              Team Members
             </label>
+            <p className="text-xs text-gray-500 mt-1">
+              Example: person 1 - Frontend, person 2 - Backend
+            </p>
           </div>
 
           <div className="relative">
@@ -104,10 +107,10 @@ export default function ProjectForm({ onSubmit }) {
             />
             <label
               htmlFor="techStack"
-              className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
+              className="absolute left-4 -top-3 text-sm sm:text-xs md:text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
+               peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-xs"
             >
-              Tech Stack (e.g., React, Node.js, MongoDB)
+              Tech Stack
             </label>
           </div>
         </div>
