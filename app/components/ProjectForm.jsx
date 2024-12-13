@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Tooltip } from "react-tooltip";
 
 export default function ProjectForm({ onSubmit }) {
   const [projectData, setProjectData] = useState({
@@ -48,7 +49,7 @@ export default function ProjectForm({ onSubmit }) {
             <label
               htmlFor="name"
               className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-sm sm:peer-placeholder-shown:text-sm sm:peer-placeholder-shown:top-2"
+                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
             >
               Project Name
             </label>
@@ -67,7 +68,7 @@ export default function ProjectForm({ onSubmit }) {
             <label
               htmlFor="description"
               className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-focus:-top-3 peer-focus:text-sm sm:peer-placeholder-shown:text-sm sm:peer-placeholder-shown:top-2"
+                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
             >
               Description
             </label>
@@ -81,18 +82,17 @@ export default function ProjectForm({ onSubmit }) {
               value={projectData.teamMembers}
               onChange={handleChange}
               className="peer w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-300 ease-in-out bg-transparent"
-              placeholder=" "
+              data-tooltip-id="teamMembersTooltip"
+              data-tooltip-content="Team Members (e.g., Alice - Frontend, Bob - Backend)"
             />
+            <Tooltip id="teamMembersTooltip" />
             <label
               htmlFor="teamMembers"
               className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-               peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
+                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
             >
               Team Members
             </label>
-            <p className="text-xs text-gray-500 mt-1">
-              Example: person 1 - Frontend, person 2 - Backend
-            </p>
           </div>
 
           <div className="relative">
@@ -103,12 +103,14 @@ export default function ProjectForm({ onSubmit }) {
               value={projectData.techStack}
               onChange={handleChange}
               className="peer w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-300 ease-in-out bg-transparent"
-              placeholder=" "
+              data-tooltip-id="techStackTooltip"
+              data-tooltip-content="Tech Stack (e.g., React, Node.js, MongoDB)"
             />
+            <Tooltip id="techStackTooltip" />
             <label
               htmlFor="techStack"
-              className="absolute left-4 -top-3 text-sm sm:text-xs md:text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
-               peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-xs"
+              className="absolute left-4 -top-3 text-sm text-gray-600 transition-all duration-300 ease-in-out bg-white px-1
+                         peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sm"
             >
               Tech Stack
             </label>
