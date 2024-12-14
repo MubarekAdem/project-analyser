@@ -14,10 +14,7 @@ const AboutPage = () => {
           Projectify helps you save time, improve productivity, and achieve your
           goals seamlessly.
         </p>
-        <p className="text-lg">
-          Built with a focus on user experience and innovation, Projectify is
-          your ultimate project companion.
-        </p>
+      
       </div>
 
       <div className="mt-10">
